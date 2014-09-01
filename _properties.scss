@@ -1,0 +1,20 @@
+/*------------------------------------
+	Frame
+*/
+
+.padded 			{ padding: $base-space; }
+.rounded 			{ border-radius: $base-radius; }
+.bordered 			{ border: 1px solid map-get($color, border); }
+
+/*------------------------------------
+	Polish
+*/
+
+.well 				{ @include box-shadow-inset(); }
+.raised 			{ @include box-shadow(); }
+
+
+.-disable-hover,
+.-disable-hover * {
+	pointer-events: none !important;
+}

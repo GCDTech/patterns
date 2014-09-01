@@ -1,0 +1,44 @@
+/*------------------------------------
+	RESOLUTIONS
+	@include screen-size();
+*/
+
+
+@mixin screen-size (
+$ss
+) {
+	@if $is-site-responsive {
+		@if $ss == "sm-max" {
+			@media only screen and (max-width: screen-size(small) ) {
+				@content;
+			}
+		}
+		@if $ss == "sm-min" {
+			@media only screen and (min-width: screen-size(small) ) {
+				@content;
+			}
+		}
+		@if $ss == "md-max" {
+			@media only screen and (max-width: screen-size(medium) ) {
+				@content;
+			}
+		}
+		@if $ss == "md-min" {
+			@media only screen and (min-width: screen-size(medium) ) {
+				@content;
+			}
+		}
+		@if $ss == "lg-min" {
+			@media only screen and (min-width: screen-size(large) ) {
+				@content;
+			}
+		}
+	}
+	@else {
+		@if $ss == "md-min" {
+			@media (min-width: screen-size(medium) ) {
+				@content;
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+@mixin rem(
+$element: font-size,
+$pxval:$base-space
+) {
+	#{$element}: $pxval;
+	#{$element}: rem($pxval);
+}

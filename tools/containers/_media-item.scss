@@ -1,0 +1,60 @@
+/*------------------------------------
+	MEDIA-ITEM
+
+	Allows you to make a simole Media Object like the one here:
+	http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+
+	Set to the $layout to stacked to make the image and body stack one above the other.
+*/
+
+@mixin media-item($include:extend) {
+	@if $include != "extend" {
+		@include clear($include);
+		@include vertical-spacing();
+		display:block;
+	}
+	@else {
+		@extend %media-item;
+	}
+}
+
+%media-item {
+	@include media-item(include);
+}
+
+
+@mixin media-item__image($include:extend) {
+	@if $include != "extend" {
+		img {
+			width:auto;
+		}
+		@include rem(margin-#{$main-end}, $base-space);
+		float:$main-start;
+	}
+	@else {
+		@extend %media-item__image;
+	}
+}
+
+%media-item__image {
+	@include media-item__image(include);
+}
+
+
+@mixin media-item__body($include:extend) {
+	@if $include != "extend" {
+		overflow:hidden;
+		margin-bottom:0;
+
+		> :last-child {
+			margin-bottom:0;
+		}
+	}
+	@else {
+		@extend %media-item__body;
+	}
+}
+
+%media-item__body {
+	@include media-item__body(include);
+}

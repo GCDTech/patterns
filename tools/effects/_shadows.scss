@@ -1,0 +1,30 @@
+/*------------------------------------
+	SHADOWS
+*/
+
+@mixin box-shadow (
+$horizontal: 0px,
+$vertical: 1px,
+$blur: 3px,
+$color: rgba(0, 0, 0, 0.1)
+) {
+	@include prefixer(box-shadow, $horizontal $vertical $blur $color, spec);
+}
+
+@mixin box-shadow-inset (
+$horizontal: 0px,
+$vertical: 1px,
+$blur: 3px,
+$color: rgba(0, 0, 0, 0.1)
+) {
+	@include prefixer(box-shadow, inset $horizontal $vertical $blur $color, spec);
+}
+
+@mixin text-shadow (
+$horizontal: 0px,
+$vertical: 1px,
+$blur: 3px,
+$color: rgba(0, 0, 0, 0.1)
+) {
+	@include prefixer(text-shadow, $horizontal $vertical $blur $color, spec);
+}

@@ -1,0 +1,26 @@
+/*------------------------------------
+	LINK
+*/
+
+@mixin link ( $include: extend ) {
+	@if $include != "extend" {
+		color: map-get($color, link);
+		cursor: pointer;
+		&:hover {
+			color: lighten(map-get($color, link), 20%);
+		}
+		&:visited {
+			color: desaturate(map-get($color, link), 10%);
+		}
+		&:active {
+			color: complement(map-get($color, link));
+		}
+	}
+	@else {
+		@extend %link;
+	}
+}
+
+%link {
+	@include link(include);
+}

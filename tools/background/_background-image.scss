@@ -1,0 +1,75 @@
+/*------------------------------------
+	# BACKGROUND-IMAGE
+
+	The background-image mixin is helpful for chaining multiple comma delimited background images and/or
+	linear/radial-gradients into one background-image property. The Background-image mixin supports up to 10
+	background-images.
+
+	Use in combination with the linear-gradient function and the radial-gradient function.
+
+		// Image asset with a linear-gradient
+		@include background-image(url("/images/a.png"), linear-gradient(white 0, yellow 50%, transparent 50%));
+
+		// Multiple linear-gradients - Demo
+		@include background-image(linear-gradient(hsla(0, 100%, 100%, 0.25) 0%, hsla(0, 100%, 100%, 0.08) 50%, transparent 50%),
+							   linear-gradient(#4e7ba3, darken(#4e7ba4, 10%)));
+
+		// NOT SUPPORTED
+		@include background-image(url("/images/a.png") center no-repeat, url("images/b.png") left repeat);
+
+		// Background-image is not a shorthand property, therefore this doesn't make sense.
+
+	## Note about shorthand notation
+
+	All CSS background properties support comma delimited values. For multiple background images you can specify the
+	background properties like position, repeat, etc. for each image. For example:
+
+		@include background-image(url("/images/a.png"), url("images/b.png"));
+		background-position: center top, center;
+		background-repeat: no-repeat, repeat-x;
+
+	-- From bourbon.io/docs/#background
+
+*/
+
+@mixin background-image (
+$images...
+) {
+	background-image: _add-prefix($images, webkit);
+	background-image: _add-prefix($images);
+}
+
+@function _add-prefix (
+$images,
+$vendor: false
+) {
+	$images-prefixed: ();
+	$gradient-positions: false;
+	@for $i from 1 through length($images) {
+		$type: type-of(nth($images, $i)); // Get type of variable - List or String
+
+	// If variable is a list - Gradient
+		@if $type == list {
+			$gradient-type: nth(nth($images, $i), 1); // linear or radial
+			$gradient-pos: null;
+			$gradient-args: null;
+
+			@if ($gradient-type == linear) or ($gradient-type == radial) {
+				$gradient-pos:  nth(nth($images, $i), 2); // Get gradient position
+				$gradient-args: nth(nth($images, $i), 3); // Get actual gradient (red, blue)
+			}
+			@else {
+				$gradient-args: nth(nth($images, $i), 2); // Get actual gradient (red, blue)
+			}
+
+			$gradient-positions: _gradient-positions-parser($gradient-type, $gradient-pos);
+			$gradient: _render-gradients($gradient-positions, $gradient-args, $gradient-type, $vendor);
+			$images-prefixed: append($images-prefixed, $gradient, comma);
+		}
+		// If variable is a string - Image
+		@else if $type == string {
+			$images-prefixed: join($images-prefixed, nth($images, $i), comma);
+		}
+	}
+	@return $images-prefixed;
+}

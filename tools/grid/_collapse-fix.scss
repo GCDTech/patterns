@@ -1,0 +1,15 @@
+/**
+* See: http://css-tricks.com/make-sure-columns-dont-collapse-horizontally/
+*/
+@mixin collapse-fix($include: extend) {
+	@if $include != "extend" {
+		min-height:1px;
+	}
+	@else {
+		@extend %collapse-fix;
+	}
+}
+
+%collapse-fix {
+	@include collapse-fix(include);
+}

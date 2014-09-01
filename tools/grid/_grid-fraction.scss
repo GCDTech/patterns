@@ -1,0 +1,23 @@
+/**
+* For setting the width of an element to be a fraction of the page.
+* e.g @include grid-fraction(2, 3) would use 2 thirds of the page.
+*
+* This also adds support for older versions of IE,
+* (this requires you using an inner container with class .ie-inner)
+*/
+@mixin grid-fraction(
+$n,
+$d,
+$include:extend
+) {
+	@include is-old-ie {
+		.ie-inner {
+			@include grid-item-padding($include);
+		}
+	}
+	@include is-not-old-ie {
+		@include grid-item-padding($include);
+	}
+	@include grid-item($include);
+	@include fraction($n, $d);
+}

@@ -1,0 +1,22 @@
+/*------------------------------------
+	CLEARFIX
+	From http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+@mixin clear($include: extend) {
+	@if $include != "extend" {
+		*zoom: 1;
+
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	} @else {
+		@extend %clear;
+	}
+}
+
+%clear {
+	@include clear(include);
+}

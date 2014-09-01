@@ -1,0 +1,17 @@
+/**
+* Used when content is not divided up into fractions
+*/
+
+@mixin grid-fillparent($include: extend) {
+	@if $include != "extend" {
+		float:none;
+		width:auto;
+	}
+	@else {
+		@extend %grid-fillparent;
+	}
+}
+
+%grid-fillparent {
+	@include grid-fillparent(include);
+}
