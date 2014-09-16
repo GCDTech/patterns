@@ -14,3 +14,14 @@
 	}
 	vertical-align:$vertical-align;
 }
+
+/* 	An alternative to the above which allows you to
+ 	vertically align any element in IE9+
+	You may also need to add a transform-style: preserve-3d
+	to the parent */
+
+@mixin vertical-align () {
+	position: relative;
+	top: 50%;
+	@include prefixer( transform, translateY(-50%), webkit moz spec );
+}
