@@ -2,18 +2,18 @@
 	LINK
 */
 
-@mixin link ( $include: extend ) {
+@mixin link ( $include: extend, $link-color: map-get( $color, link ) ) {
 	@if $include != "extend" {
-		color: map-get($color, link);
+		color: $link-color;
 		cursor: pointer;
 		&:hover {
-			color: lighten(map-get($color, link), 20%);
+			color: lighten($link-color, 20%);
 		}
 		&:visited {
-			color: desaturate(map-get($color, link), 10%);
+			color: desaturate($link-color, 10%);
 		}
 		&:active {
-			color: complement(map-get($color, link));
+			color: $link-color;
 		}
 	}
 	@else {
