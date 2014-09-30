@@ -141,6 +141,10 @@ $button-color:$button-color
 	$has-button-border: yes;
 	border-width: $button-border-width;
 	border-color: $button-color;
+
+  &:hover{
+     border:$button-border-width solid lighten($button-color, 15%);
+  }
 }
 
 %button-group {
