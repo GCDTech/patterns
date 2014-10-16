@@ -141,6 +141,7 @@ $button-color:$button-color
 	$has-button-border: yes;
 	border-width: $button-border-width;
 	border-color: $button-color;
+	border-style: solid;
 }
 
 %button-group {
