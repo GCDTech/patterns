@@ -6,9 +6,9 @@ $width:auto
 	@include padding(0 ($base-space/2));
 	color:map-get($color, text);
 	background:$field-bg;
-	line-height: $touch-target;
+	line-height: $touch-target/2;
 	max-width:100%;
-	min-height: $touch-target;
+	min-height: $touch-target*1.1;
 	width:$width;
 
 	@if $field-font-family {
