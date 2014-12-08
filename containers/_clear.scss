@@ -5,7 +5,7 @@
 
 @mixin clear($include: extend) {
 	@if $include != "extend" {
-		*zoom: 1;
+		zoom: 1;
 
 		&:after {
 			content: '';
