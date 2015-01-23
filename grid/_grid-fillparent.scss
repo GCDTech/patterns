@@ -3,15 +3,6 @@
 */
 
 @mixin grid-fillparent($include: extend) {
-	@if $include != "extend" {
-		float:none;
-		width:auto;
-	}
-	@else {
-		@extend %grid-fillparent;
-	}
-}
-
-%grid-fillparent {
-	@include grid-fillparent(include);
+	float:none;
+	width:100%;
 }

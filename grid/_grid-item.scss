@@ -1,13 +1,4 @@
-@mixin grid-item($include: extend) {
-	@if $include != "extend" {
-		@include collapse-fix($include);
-		float:$main-start;
-	}
-	@else {
-		@extend %grid-item;
-	}
-}
-
-%grid-item {
-	@include grid-item(include);
+@mixin grid-item {
+	min-height: 1px;
+	float:$main-start;
 }

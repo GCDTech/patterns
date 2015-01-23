@@ -1,15 +1,5 @@
-@mixin grid-item-padding($include: extend) {
-	@if $include != "extend" {
-		@include border-box(include);
-		@include rem(padding-left, $gutter/2);
-		@include rem(padding-right, $gutter/2);
-	}
-	@else {
-		@include border-box;
-		@extend %grid-item-padding;
-	}
-}
-
-%grid-item-padding {
-	@include grid-item-padding(include);
+@mixin grid-item-padding($gutter:$gutter) {
+	@include border-box(include);
+	@include rem(padding-left, $gutter/2);
+	@include rem(padding-right, $gutter/2);
 }
