@@ -3,5 +3,8 @@ $element: font-size,
 $pxval:$base-space
 ) {
 	#{$element}: $pxval;
-	#{$element}: rem($pxval);
+
+	@if $rem-units {
+		#{$element}: rem($pxval);
+	}
 }
