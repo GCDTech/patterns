@@ -1,0 +1,9 @@
+@mixin font-weight( $weight: $bold )
+{
+	font-weight: $weight;
+
+	@if $font-family-bold
+	{
+		font-family: $font-family-bold;
+	}
+}
