@@ -2,8 +2,8 @@
 {
 	font-weight: $weight;
 
-	@if $font-family-bold
+	@if $bold-font-family
 	{
-		font-family: $font-family-bold;
+		font-family: $bold-font-family;
 	}
 }
