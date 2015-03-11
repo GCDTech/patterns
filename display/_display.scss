@@ -11,6 +11,7 @@
 	vertical-align: baseline;
 	@include is-old-ie {
 		display: inline;
+		float: left;
 		vertical-align: auto;
 		zoom: 1;
 	}
