@@ -3,6 +3,7 @@
 */
 
 $font-size: (
+	nano				: ceil(modular-scale($base-font-size, -3, $fs-ratio)),
 	micro				: ceil(modular-scale($base-font-size, -2, $fs-ratio)),
 	milli				: ceil(modular-scale($base-font-size, -1, $fs-ratio)),
 
