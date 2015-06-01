@@ -18,7 +18,7 @@ $ss
 				@content;
 			}
 		}
-		@if $ss == "md" {
+		@if $ss == "sm-md" {
 			@media only screen and (min-width:screen-size(small)) and (max-width: screen-size(medium)) {
 				@content;
 			}
@@ -33,7 +33,7 @@ $ss
 				@content;
 			}
 		}
-		@if $ss == "lg" {
+		@if $ss == "md-lg" {
 			@media only screen and (min-width:screen-size(medium)) and (max-width: screen-size(large)) {
 				@content;
 			}
