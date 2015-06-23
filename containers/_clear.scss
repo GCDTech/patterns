@@ -3,20 +3,12 @@
 	From http://nicolasgallagher.com/micro-clearfix-hack/
 */
 
-@mixin clear($include: extend) {
-	@if $include != "extend" {
-		zoom: 1;
+@mixin clear {
+	zoom: 1;
 
-		&:after {
-			content: '';
-			display: table;
-			clear: both;
-		}
-	} @else {
-		@extend %clear;
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
 	}
-}
-
-%clear {
-	@include clear(include);
 }

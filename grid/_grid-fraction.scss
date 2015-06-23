@@ -7,17 +7,16 @@
 */
 @mixin grid-fraction(
 $n,
-$d,
-$include:extend
+$d
 ) {
 	@include is-old-ie {
 		.ie-inner {
-			@include grid-item-padding($include);
+			@include grid-item-padding;
 		}
 	}
 	@include is-not-old-ie {
-		@include grid-item-padding($include);
+		@include grid-item-padding;
 	}
-	@include grid-item($include);
+	@include grid-item;
 	@include fraction($n, $d);
 }
