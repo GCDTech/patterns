@@ -48,6 +48,11 @@ $ss
 				@content;
 			}
 		}
+		@if $ss == "lg-xl" {
+			@media only screen and (min-width:screen-size(large)) and (max-width: screen-size(x-large)) {
+				@content;
+			}
+		}
 		@if $ss == "xl-min" {
 			@media only screen and (min-width: screen-size(x-large) ) {
 				@content;
