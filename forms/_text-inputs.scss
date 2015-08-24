@@ -3,7 +3,8 @@ $inputs-list: 'input[type="email"]',
 'input[type="password"]',
 'input[type="search"]',
 'input[type="tel"]',
-'input[type="text"]';
+'input[type="text"]',
+'input[type="date"]';
 
 $unquoted-inputs-list: ();
 @each $input-type in $inputs-list {
