@@ -39,9 +39,18 @@
 	@if $has-button-border == yes {
 		border: $button-border-width solid;
 		border-color: darken($button-color, 5%);
+
+		&:hover {
+			border-color: darken($button-color, 10%);
+		}
+
 	} @else {
 		border: 1px solid;
 		border-color: $button-color;
+
+		&:hover {
+			border-color: darken($button-color, 5%);
+		}
 	}
 
 	// Border Radius Settings

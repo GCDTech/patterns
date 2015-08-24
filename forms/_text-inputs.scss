@@ -3,17 +3,7 @@ $inputs-list: 'input[type="email"]',
 'input[type="password"]',
 'input[type="search"]',
 'input[type="tel"]',
-'input[type="text"]',
-'input[type="url"]',
-
-// Webkit & Gecko may change the display of these in the future
-'input[type="color"]',
-'input[type="date"]',
-'input[type="datetime"]',
-'input[type="datetime-local"]',
-'input[type="month"]',
-'input[type="time"]',
-'input[type="week"]';
+'input[type="text"]';
 
 $unquoted-inputs-list: ();
 @each $input-type in $inputs-list {
