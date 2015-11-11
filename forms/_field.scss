@@ -9,7 +9,12 @@ $width:auto
 	line-height: $touch-target/2;
 	max-width:100%;
 	min-height: $touch-target*1.1;
-	width:$width;
+	width: 100%;
+
+	@include screen-size( sm-min )
+	{
+		width:$width;
+	}
 
 	@if $field-font-family {
 		font-family: $field-font-family;
